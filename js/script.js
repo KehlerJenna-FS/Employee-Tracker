@@ -1,3 +1,4 @@
+//class for all employees
 class Employee {
   constructor(name, age) {
     this.name = name;
@@ -6,19 +7,20 @@ class Employee {
   }
 }
 
+//class for managers that extends to employee class
 class Manager extends Employee {
   constructor(name, age, payRate, hours) {
     super(name, age);
     this.payRate = payRate;
     this.hours = hours;
-    this.type = "manager";
+    this.type = "Manager";
   }
-
+  //calculates annual salary for manager
   calculatePay() {
     this.annualSalary = this.payRate * 40 * 52 - 1000;
   }
 }
-
+//class for part time employees that extends to employee class
 class PartTime extends Employee {
   constructor(name, age, payRate, hours) {
     super(name, age);
@@ -26,24 +28,24 @@ class PartTime extends Employee {
     this.hours = hours;
     this.type = "PT";
   }
-
+  //calculates annual salary for part time employees
   calculatePay() {
     this.annualSalary = this.payRate * this.hours * 52;
   }
 }
-
+//main class for employees
 class Main {
   constructor() {
     this.employees = [];
     this.allEmployees();
   }
-
+  //three employees added to the list
   allEmployees() {
     let employeeOne = new PartTime("Jenna", 25, 15, 25);
     employeeOne.calculatePay();
     this.employees.push(employeeOne);
 
-    let employeeTwo = new Manager("Brianna", 38, 25, 40, 20);
+    let employeeTwo = new Manager("Brianna", 38, 25, 40);
     employeeTwo.calculatePay();
     this.employees.push(employeeTwo);
 
@@ -78,12 +80,17 @@ class Main {
         break;
     }
   }
-
+  //prompt to add a new employee to the list
   addEmployee() {
-    let name = prompt("Enter the employee's name:");
-    let age = parseInt(prompt("Enter the employee's age:"));
-    let payRate = parseFloat(prompt("Enter the employee's pay rate:"));
-    let hours = parseFloat(prompt("Enter the number of hours per week:"));
+    let employeeData = prompt(
+      "Add Employee Name, age, hours, and pay rate (seperate each with a comma)"
+    );
+    let [name, age, payRate, hours] = employeeData
+      .split(",")
+      .map((item) => item.trim());
+    age = parseInt(age);
+    payRate = parseFloat(payRate);
+    hours = parseFloat(hours);
 
     if (hours < 40) {
       let partTimeEmployee = new PartTime(name, age, payRate, hours);
@@ -98,7 +105,7 @@ class Main {
     this.displayEmployees();
     this.displayMenu();
   }
-
+  //prompt to remove an employee from the list
   removeEmployee() {
     let identifier = prompt("Enter employee number or name to remove:");
     if (isNaN(identifier)) {
@@ -114,7 +121,7 @@ class Main {
     this.displayEmployees();
     this.displayMenu();
   }
-
+  //prompt to edit an employee
   editEmployee() {
     let employeeNumber = parseInt(prompt("Enter employee number to edit:")) - 1;
     if (employeeNumber >= 0 && employeeNumber < this.employees.length) {
@@ -126,10 +133,10 @@ class Main {
     this.displayEmployees();
     this.displayMenu();
   }
-
+  //list that displays all employees in the console with their name, age, salary, hours, pay, and employee type
   displayEmployees() {
     console.clear();
-    console.log("My Employees");
+    console.log("My Wonderful Employees!");
     console.log("ID\tName\tAge\tSalary\tHours\tPay\tType");
     this.employees.forEach((emp, index) => {
       console.log(
@@ -140,7 +147,7 @@ class Main {
     });
   }
 }
-
+//IIFE for the main class that starts the employee tracker
 (() => {
   const main = new Main();
 })();
