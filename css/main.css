@@ -1,0 +1,21 @@
+body {
+  background-color: mediumvioletred;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rem;
+}
+
+h1 {
+  font-size: 5rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: mintcream;
+  text-shadow: 4px 4px 4px lightpink;
+}
+
+h3 {
+  font-size: 2rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: lightcyan;
+}

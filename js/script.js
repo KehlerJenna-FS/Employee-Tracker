@@ -56,10 +56,10 @@ class Main {
   }
 
   displayMenu() {
-    let option = prompt(
-      `Employee Tracker Menu:\n1. Add Employee\n2. Remove Employee\n3. Edit Employee\n4. Display Employees`
+    let prompts = prompt(
+      `Main Menu:\n1. Add Employee\n2. Remove Employee\n3. Edit Employee\n4. Display Employees`
     );
-    switch (option) {
+    switch (prompts) {
       case "1":
         this.addEmployee();
         break;
