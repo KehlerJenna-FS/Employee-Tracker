@@ -49,7 +49,7 @@ class Main {
     employeeTwo.calculatePay();
     this.employees.push(employeeTwo);
 
-    let employeeThree = new PartTime("Austin", 24, 20, 12);
+    let employeeThree = new PartTime("Austin", 57, 20, 12);
     employeeThree.calculatePay();
     this.employees.push(employeeThree);
 
