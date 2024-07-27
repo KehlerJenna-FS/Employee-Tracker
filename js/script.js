@@ -129,6 +129,7 @@ class Main {
 
   displayEmployees() {
     console.clear();
+    console.log("My Employees");
     console.log("ID\tName\tAge\tSalary\tHours\tPay\tType");
     this.employees.forEach((emp, index) => {
       console.log(
