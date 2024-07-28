@@ -15,7 +15,7 @@ class Manager extends Employee {
     this.hours = hours;
     this.type = "Manager";
   }
-  //calculates annual salary for manager
+  //calculates annual salary for managers
   calculatePay() {
     this.annualSalary = this.payRate * 40 * 52 - 1000;
   }
@@ -56,7 +56,7 @@ class Main {
     this.displayEmployees();
     this.displayMenu();
   }
-
+  //display menu setup
   displayMenu() {
     let prompts = prompt(
       `Main Menu:\n1. Add Employee\n2. Remove Employee\n3. Edit Employee\n4. Display Employees`
